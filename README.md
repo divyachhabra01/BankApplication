@@ -45,9 +45,8 @@ For more info you can visit JWT website (https://jwt.io/)
 * GET API (/api/v1/1/accounts/PNB-SAVINGS-61417251/transactions) : This API return transaction history as response for customer account.
 
 ## Testing
-You can use Postman for testing of above service . I am sharing the link of my Postman collection here 
+You can use Postman for testing of above service . You can use find Postman Collection file in source code.
 
-[Link](https://api.postman.com/collections/15194636-e0dcf691-f55d-4b65-87a5-bbb43c9cb0f9?access_key=PMAT-01HP7502CBGG73B6M7VFR7RVBC)
 
 ## Tools and Technology Used :
 
