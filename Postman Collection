@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "e0dcf691-f55d-4b65-87a5-bbb43c9cb0f9",
+		"name": "Bank Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15194636"
+	},
+	"item": [
+		{
+			"name": "RegisterUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"Divya\",\r\n    \"email\": \"divyachhabra34@gmail.com\",\r\n    \"mobileNumber\": \"9045783421\",\r\n    \"password\": \"Divya@123\",\r\n    \"role\": \"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Divya\",\r\n    \"password\": \"Divya@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				},
+				"description": "Login "
+			},
+			"response": []
+		},
+		{
+			"name": "Current User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCYW5rIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJEaXZ5YSIsImF1dGhvcml0aWVzIjoiVVNFUiIsImlhdCI6MTY0NDI0MDk5MCwiZXhwIjoxNjQ2ODM5NzkwfQ.xlJUHgj68bRF09txD9bl8emHNYmWkUe3hX6Xr8qCNmc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customer"
+					]
+				},
+				"description": "Customer"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumber\":\"12456789764532\",\r\n    \"accountType\":\"Saving\",\r\n    \"balance\":20000.00,\r\n    \"customerId\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accounts/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers/1/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Balance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJCYW5rIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJEaXZ5YSIsImF1dGhvcml0aWVzIjoiIiwiaWF0IjoxNzA3NDA5MDE1LCJleHAiOjE3MDc0MzkwMTV9.fyaXxE5T-aDtITovOL9yONKfRhNhaviZUwGwr-2OwKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/1/accounts/1/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"1",
+						"accounts",
+						"1",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJCYW5rIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJEaXZ5YSIsImF1dGhvcml0aWVzIjoiIiwiaWF0IjoxNzA3NDA5MDE1LCJleHAiOjE3MDc0MzkwMTV9.fyaXxE5T-aDtITovOL9yONKfRhNhaviZUwGwr-2OwKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/1/accounts/PNB-SAVINGS-fba553cd/deposit?amount=5000.00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"1",
+						"accounts",
+						"PNB-SAVINGS-fba553cd",
+						"deposit"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "5000.00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJCYW5rIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJEaXZ5YSIsImF1dGhvcml0aWVzIjoiIiwiaWF0IjoxNzA3NDA5MDE1LCJleHAiOjE3MDc0MzkwMTV9.fyaXxE5T-aDtITovOL9yONKfRhNhaviZUwGwr-2OwKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/1/accounts/PNB-SAVINGS-fba553cd/withdraw?amount=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"1",
+						"accounts",
+						"PNB-SAVINGS-fba553cd",
+						"withdraw"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TransactionHistory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJCYW5rIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJEaXZ5YSIsImF1dGhvcml0aWVzIjoiIiwiaWF0IjoxNzA3NDA5MDE1LCJleHAiOjE3MDc0MzkwMTV9.fyaXxE5T-aDtITovOL9yONKfRhNhaviZUwGwr-2OwKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/1/accounts/PNB-SAVINGS-cce9228a/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"1",
+						"accounts",
+						"PNB-SAVINGS-cce9228a",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
