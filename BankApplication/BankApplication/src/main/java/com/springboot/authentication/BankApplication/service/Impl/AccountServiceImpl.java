@@ -61,9 +61,9 @@ public class AccountServiceImpl implements AccountService {
         return account.getId();
     }
 
-    @Transactional
+    
     @Override
-    public  List<Transaction>  getAccountDetailsWithTransactionHistory(Long customerId, String accountNumber) {
+    public  List<Transaction>  getAccountTransactionHistory(Long customerId, String accountNumber) {
         Account account= accountsRepository.findByCustomerIdAndAccountNumber(customerId,accountNumber);
         List<Transaction> transactionList;
         if(account==null){
@@ -92,7 +92,8 @@ public class AccountServiceImpl implements AccountService {
         log.debug("Account Balance : " + account.getBalance());
         return account.getBalance();
     }
-
+    
+    @Transactional(rollbackOn = Exception.class)
     @Override
     public boolean depositAmount(Long customerId, String accountNumber, Double amount, TransactionMode mode,String description) {
         Account account= accountsRepository.findByCustomerIdAndAccountNumber(customerId,accountNumber);
@@ -112,7 +113,8 @@ public class AccountServiceImpl implements AccountService {
         log.debug("Amount deposited successfully!");
         return true;
     }
-
+    
+    @Transactional(rollbackOn = Exception.class)
     @Override
     public boolean withdrawAmount(Long customerId, String accountNumber, Double amount,TransactionMode mode,String description) {
         Account account= accountsRepository.findByCustomerIdAndAccountNumber(customerId,accountNumber);
