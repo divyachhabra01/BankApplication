@@ -43,7 +43,7 @@ public class AccountsController {
 
     @GetMapping(value = "/{customerId}/accounts/{accountNumber}/transactions", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Transaction>> getTransactionHistory(@PathVariable("customerId") Long customerId, @PathVariable("accountNumber") String accountNumber){
-        List<Transaction> transactionList= accountService.getAccountDetailsWithTransactionHistory(customerId,accountNumber);
+        List<Transaction> transactionList= accountService.getAccountTransactionHistory(customerId,accountNumber);
         if(transactionList.isEmpty()){
             return ResponseEntity.noContent().build();
         }
