@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface AccountService {
    Long createAccount(AccountDTO accountDTO);
-   List<Transaction> getAccountDetailsWithTransactionHistory(Long customerId, String accountNumber);
+   List<Transaction> getAccountTransactionHistory(Long customerId, String accountNumber);
 
    Double getAccountBalance(Long customerId, String accountNumber);
 
